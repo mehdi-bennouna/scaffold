@@ -1,6 +1,6 @@
 {
 	"name": "@mehdi-bennouna/create-scaffold",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Start a TypeScript project (Node, React + Vite, or a Turborepo monorepo) with strict linting, formatting and git hooks already set up",
 	"repository": {
 		"type": "git",
