@@ -1,5 +1,7 @@
 import { defineConfig } from "lint-staged/config";
 
 export default defineConfig({
-	"*.{js,mjs,cjs,ts,mts,cts,json,md,yml,yaml}": "pnpm exec prettier --check",
+	"{apps,packages}/!(*-config)/**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}": "pnpm exec eslint --max-warnings 0 --no-warn-ignored",
+	"*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,json,md,css,html,yml,yaml}": "pnpm exec prettier --check",
+	"*.{ts,tsx,mts,cts}": () => "pnpm typecheck",
 });

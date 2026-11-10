@@ -16,9 +16,10 @@
 		"@commitlint/config-conventional": "^21.2.4",
 		"@commitlint/types": "^21.2.3",
 		"@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+		"eslint": "catalog:",
 		"husky": "^9.1.7",
 		"jiti": "catalog:",
-		"lint-staged": "catalog:",
+		"lint-staged": "^17.6.0",
 		"prettier": "^3.9.10",
 		"prettier-plugin-packagejson": "^3.1.0",
 		"turbo": "^2.11.10"

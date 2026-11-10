@@ -17,8 +17,8 @@ Leave out the directory or the template and you'll be asked for them.
 | `monorepo` | pnpm workspace run with Turborepo, holding a Node API, a TanStack Start app and a shared library. | `dev`, `build`, `typecheck`, `lint`, `format`            |
 
 In the monorepo, `apps/api` is a Node HTTP server bundled with tsdown and `apps/web` is a TanStack Start app. Both import `packages/utils`,
-which needs no build step: each app compiles it from source, and `dev` picks up its changes. The ESLint, TypeScript and lint-staged config
-lives in `@repo/*-config` packages that every app and package extends, and the root scripts run each task across all of them.
+which needs no build step: each app compiles it from source, and `dev` picks up its changes. The ESLint and TypeScript config lives in
+`@repo/*-config` packages that every app and package extends, and the root scripts run each task across all of them.
 
 ## What every project gets
 

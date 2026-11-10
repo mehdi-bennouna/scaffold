@@ -15,7 +15,6 @@
 	},
 	"devDependencies": {
 		"@repo/eslint-config": "workspace:*",
-		"@repo/lint-staged-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"@types/node": "catalog:",
 		"eslint": "catalog:",

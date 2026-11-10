@@ -13,7 +13,7 @@ const manifestPath = join(import.meta.dirname, "synced-files.txt");
 const destinations: Record<string, Record<string, string | null>> = {
 	monorepo: {
 		"eslint.base.ts": join("packages", "eslint-config", "eslint.base.ts"),
-		"lint-staged.config.ts": join("packages", "lint-staged-config", "lint-staged.base.ts"),
+		"lint-staged.config.ts": null,
 		"pnpm-workspace.yaml": null,
 		"tsconfig.base.json": join("packages", "typescript-config", "tsconfig.base.json"),
 	},

@@ -7,7 +7,6 @@ catalog:
     eslint: "^10.14.0"
     globals: "^17.14.0"
     jiti: "^2.7.0"
-    lint-staged: "^17.6.0"
     typescript: "~6.0.3"
 
 # Skip releases younger than 3 days
