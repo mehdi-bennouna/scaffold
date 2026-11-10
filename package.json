@@ -22,7 +22,7 @@
 		"prepublishOnly": "pnpm check",
 		"sync": "node scripts/sync.ts",
 		"sync:check": "node scripts/sync.ts --check",
-		"templates:install": "node scripts/templates.ts \"install --no-frozen-lockfile\"",
+		"templates:install": "node scripts/templates.ts install --no-frozen-lockfile",
 		"typecheck": "tsc -p tsconfig.json && node scripts/templates.ts typecheck"
 	},
 	"dependencies": {
