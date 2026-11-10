@@ -10,7 +10,7 @@ const REPO = "mehdi-bennouna/scaffold";
 const DEFAULT_REF = "master";
 
 const TEMPLATES = {
-	node: "Node app, runs .ts natively and bundles with tsdown",
+	node: "Node app bundled with tsdown",
 	react: "React + Vite web app",
 } as const;
 

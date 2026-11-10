@@ -10,10 +10,10 @@ Leave out the directory or the template and you'll be asked for them.
 
 ## Templates
 
-| Template | What it is                                                                                                   | Scripts                                                  |
-| -------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
-| `node`   | Node 24 app. `dev` runs `src/index.ts` directly with `node --watch`; `build` bundles to `dist/` with tsdown. | `dev`, `build`, `start`, `typecheck`, `lint`, `format`   |
-| `react`  | React 19 web app on Vite.                                                                                    | `dev`, `build`, `preview`, `typecheck`, `lint`, `format` |
+| Template | What it is                                                                            | Scripts                                                  |
+| -------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `node`   | Node 24 app bundled with tsdown. `dev` rebuilds and restarts the app on every change. | `dev`, `build`, `start`, `typecheck`, `lint`, `format`   |
+| `react`  | React 19 web app on Vite.                                                             | `dev`, `build`, `preview`, `typecheck`, `lint`, `format` |
 
 ## What every project gets
 

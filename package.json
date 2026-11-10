@@ -1,6 +1,6 @@
 {
 	"name": "@mehdi-bennouna/create-scaffold",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Create a TypeScript project (Node or React + Vite) with strict tooling that stays up to date",
 	"repository": {
 		"type": "git",

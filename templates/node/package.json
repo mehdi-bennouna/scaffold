@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "tsdown",
-		"dev": "node --watch src/index.ts",
+		"dev": "tsdown --watch --on-success \"node --enable-source-maps dist/index.mjs\"",
 		"format": "prettier --write .",
 		"lint": "eslint --max-warnings 0 . && prettier --check .",
 		"prepare": "husky",
