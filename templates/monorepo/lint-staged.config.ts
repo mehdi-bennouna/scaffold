@@ -1,5 +1,5 @@
-import type { Configuration } from "lint-staged";
+import { defineConfig } from "lint-staged/config";
 
-export default {
+export default defineConfig({
 	"*.{js,mjs,cjs,ts,mts,cts,json,md,yml,yaml}": "pnpm exec prettier --check",
-} satisfies Configuration;
+});

@@ -1,6 +1,6 @@
 import type { Config } from "prettier";
 
-const config: Config = {
+export default {
 	useTabs: true,
 	arrowParens: "always",
 	bracketSpacing: true,
@@ -32,6 +32,4 @@ const config: Config = {
 			},
 		},
 	],
-};
-
-export default config;
+} satisfies Config;
