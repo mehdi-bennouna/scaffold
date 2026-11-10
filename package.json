@@ -16,13 +16,14 @@
 	],
 	"scripts": {
 		"build": "tsdown",
-		"check": "pnpm sync:check && pnpm typecheck && pnpm lint && pnpm build && pnpm -r build",
-		"lint": "eslint --max-warnings 0 . && prettier --check . && pnpm -r lint",
-		"prepare": "husky",
+		"check": "pnpm templates:install && pnpm sync:check && pnpm typecheck && pnpm lint && pnpm build && node scripts/templates.ts build",
+		"lint": "eslint --max-warnings 0 . && prettier --check . && node scripts/templates.ts lint",
+		"prepare": "husky && pnpm templates:install",
 		"prepublishOnly": "pnpm check",
 		"sync": "node scripts/sync.ts",
 		"sync:check": "node scripts/sync.ts --check",
-		"typecheck": "tsc -p tsconfig.json && pnpm -r typecheck"
+		"templates:install": "node scripts/templates.ts \"install --no-frozen-lockfile\"",
+		"typecheck": "tsc -p tsconfig.json && node scripts/templates.ts typecheck"
 	},
 	"dependencies": {
 		"@clack/prompts": "^1.8.1",

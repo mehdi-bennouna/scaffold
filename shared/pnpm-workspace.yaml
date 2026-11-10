@@ -1,0 +1,2 @@
+# Skip releases younger than 3 days
+minimumReleaseAge: 4320

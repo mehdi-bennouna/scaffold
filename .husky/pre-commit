@@ -1,2 +1,2 @@
 pnpm exec lint-staged --config lint-staged.config.ts
-pnpm --recursive --workspace-concurrency=1 exec lint-staged --config lint-staged.config.ts
+node scripts/templates.ts "exec lint-staged"

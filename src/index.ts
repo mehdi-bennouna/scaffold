@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { spawnSync } from "node:child_process";
-import { appendFileSync, existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, join, relative, resolve } from "node:path";
 import { parseArgs } from "node:util";
 import { cancel, intro, log, note, outro, select, spinner, text } from "@clack/prompts";
@@ -119,15 +119,6 @@ async function main(): Promise<void> {
 	const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf8")) as Record<string, unknown>;
 	packageJson["name"] = toPackageName(basename(targetDir));
 	writeFileSync(packageJsonPath, `${JSON.stringify(packageJson, null, "\t")}\n`);
-
-	const workspacePath = join(targetDir, "pnpm-workspace.yaml");
-	const releaseAge = "# Skip releases younger than 3 days\nminimumReleaseAge: 4320\n";
-
-	if (!existsSync(workspacePath)) {
-		writeFileSync(workspacePath, releaseAge);
-	} else if (!readFileSync(workspacePath, "utf8").includes("minimumReleaseAge")) {
-		appendFileSync(workspacePath, `\n${releaseAge}`);
-	}
 
 	if (values.git && !run("git", ["init", "--quiet"], targetDir)) {
 		log.warn("git init failed. Run it yourself before installing, so the git hooks get set up.");
