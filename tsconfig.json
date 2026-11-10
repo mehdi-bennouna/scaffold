@@ -6,5 +6,5 @@
 		"lib": ["ES2024"],
 		"types": ["node"]
 	},
-	"include": ["scripts", "*.config.ts"]
+	"include": ["src", "scripts", "*.config.ts"]
 }

@@ -1,17 +1,32 @@
 {
-	"name": "scaffold",
-	"version": "0.0.0",
-	"private": true,
+	"name": "@mehdi-bennouna/create-scaffold",
+	"version": "0.1.0",
+	"description": "Create a TypeScript project (Node or React + Vite) with strict tooling that stays up to date",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mehdi-bennouna/scaffold.git"
+	},
 	"license": "MIT",
 	"type": "module",
+	"bin": {
+		"create-scaffold": "./dist/index.mjs"
+	},
+	"files": [
+		"dist"
+	],
 	"scripts": {
-		"build": "pnpm -r build",
-		"check": "pnpm sync:check && pnpm typecheck && pnpm lint && pnpm -r build",
+		"build": "tsdown",
+		"check": "pnpm sync:check && pnpm typecheck && pnpm lint && pnpm build && pnpm -r build",
 		"lint": "eslint --max-warnings 0 . && prettier --check . && pnpm -r lint",
 		"prepare": "husky",
+		"prepublishOnly": "pnpm check",
 		"sync": "node scripts/sync.ts",
 		"sync:check": "node scripts/sync.ts --check",
 		"typecheck": "tsc -p tsconfig.json && pnpm -r typecheck"
+	},
+	"dependencies": {
+		"@clack/prompts": "^1.8.1",
+		"giget": "^3.3.1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^21.2.4",
@@ -29,6 +44,7 @@
 		"lint-staged": "^17.6.0",
 		"prettier": "^3.9.10",
 		"prettier-plugin-packagejson": "^3.1.0",
+		"tsdown": "^0.23.7",
 		"typescript": "~6.0.3",
 		"typescript-eslint": "^8.72.1"
 	},
@@ -44,5 +60,8 @@
 			"version": "12.18.0",
 			"onFail": "download"
 		}
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
