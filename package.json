@@ -1,25 +1,32 @@
 {
-  "name": "scaffold",
-  "version": "0.0.0",
-  "license": "MIT",
-  "devEngines": {
-    "runtime": {
-      "name": "node",
-      "version": "24.21.0",
-      "onFail": "download"
-    },
-    "packageManager": {
-      "name": "pnpm",
-      "version": "12.18.0",
-      "onFail": "download"
-    }
-  },
-  "packageManager": "pnpm@12.18.0",
-  "type": "module",
-  "devDependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
-    "@types/node": "^26.6.6",
-    "prettier": "^3.9.10",
-    "prettier-plugin-packagejson": "^3.1.0"
-  }
+	"name": "scaffold",
+	"version": "0.0.0",
+	"license": "MIT",
+	"type": "module",
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+		"@types/node": "^26.6.6",
+		"eslint": "^10.14.0",
+		"eslint-import-resolver-typescript": "^4.4.5",
+		"eslint-plugin-import-x": "^4.18.0",
+		"globals": "^17.14.0",
+		"jiti": "^2.7.0",
+		"prettier": "^3.9.10",
+		"prettier-plugin-packagejson": "^3.1.0",
+		"typescript-eslint": "^8.72.1"
+	},
+	"packageManager": "pnpm@12.18.0",
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": "24.21.0",
+			"onFail": "download"
+		},
+		"packageManager": {
+			"name": "pnpm",
+			"version": "12.18.0",
+			"onFail": "download"
+		}
+	}
 }
