@@ -1,0 +1,45 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended", ":semanticCommits"],
+	"schedule": ["before 6am on monday"],
+	"minimumReleaseAge": "3 days",
+	"rangeStrategy": "bump",
+	"lockFileMaintenance": {
+		"enabled": true,
+		"automerge": true,
+		"schedule": ["before 6am on monday"]
+	},
+	"packageRules": [
+		{
+			"description": "Batch all non-major updates into one PR and merge it automatically once CI passes",
+			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-minor-patch",
+			"automerge": true
+		},
+		{
+			"description": "Majors get one PR each, reviewed by hand",
+			"matchUpdateTypes": ["major"],
+			"automerge": false
+		},
+		{
+			"description": "typescript-eslint supports a narrow TypeScript range, so TypeScript minors and majors get their own PR, reviewed by hand",
+			"matchPackageNames": ["typescript"],
+			"matchUpdateTypes": ["minor", "major"],
+			"groupName": "typescript",
+			"automerge": false
+		},
+		{
+			"description": "@types/node follows the Node major in devEngines, not the latest",
+			"matchPackageNames": ["@types/node"],
+			"matchUpdateTypes": ["major"],
+			"enabled": false
+		},
+		{
+			"description": "Keep Node on the LTS line",
+			"matchDepNames": ["node"],
+			"matchUpdateTypes": ["major"],
+			"enabled": false
+		}
+	]
+}
