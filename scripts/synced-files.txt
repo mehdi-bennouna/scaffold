@@ -1,0 +1,9 @@
+.gitignore
+.husky/commit-msg
+.husky/pre-commit
+.prettierignore
+commitlint.config.ts
+eslint.base.ts
+lint-staged.config.ts
+prettier.config.ts
+tsconfig.base.json

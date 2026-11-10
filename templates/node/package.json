@@ -1,0 +1,48 @@
+{
+	"name": "node-app",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "tsdown",
+		"dev": "node --watch src/index.ts",
+		"format": "prettier --write .",
+		"lint": "eslint --max-warnings 0 . && prettier --check .",
+		"prepare": "husky",
+		"start": "node --enable-source-maps dist/index.mjs",
+		"typecheck": "tsc -b"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^21.2.4",
+		"@commitlint/config-conventional": "^21.2.4",
+		"@commitlint/types": "^21.2.3",
+		"@eslint/js": "^10.0.1",
+		"@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+		"@types/node": "^24.19.2",
+		"eslint": "^10.14.0",
+		"eslint-import-resolver-typescript": "^4.4.5",
+		"eslint-plugin-import-x": "^4.18.0",
+		"globals": "^17.14.0",
+		"husky": "^9.1.7",
+		"jiti": "^2.7.0",
+		"lint-staged": "^17.6.0",
+		"prettier": "^3.9.10",
+		"prettier-plugin-packagejson": "^3.1.0",
+		"tsdown": "^0.23.7",
+		"typescript": "~6.0.3",
+		"typescript-eslint": "^8.72.1"
+	},
+	"packageManager": "pnpm@12.18.0",
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": "24.21.0",
+			"onFail": "download"
+		},
+		"packageManager": {
+			"name": "pnpm",
+			"version": "12.18.0",
+			"onFail": "download"
+		}
+	}
+}

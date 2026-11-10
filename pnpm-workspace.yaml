@@ -1,0 +1,5 @@
+packages:
+    - templates/*
+
+# Don't install versions published less than 3 days ago (matches Renovate's minimumReleaseAge).
+minimumReleaseAge: 4320

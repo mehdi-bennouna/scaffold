@@ -1,10 +1,17 @@
 {
 	"name": "scaffold",
 	"version": "0.0.0",
+	"private": true,
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"prepare": "husky"
+		"build": "pnpm -r build",
+		"check": "pnpm sync:check && pnpm typecheck && pnpm lint && pnpm -r build",
+		"lint": "eslint --max-warnings 0 . && prettier --check . && pnpm -r lint",
+		"prepare": "husky",
+		"sync": "node scripts/sync.ts",
+		"sync:check": "node scripts/sync.ts --check",
+		"typecheck": "tsc -p tsconfig.json && pnpm -r typecheck"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^21.2.4",
@@ -12,7 +19,7 @@
 		"@commitlint/types": "^21.2.3",
 		"@eslint/js": "^10.0.1",
 		"@ianvs/prettier-plugin-sort-imports": "^4.7.1",
-		"@types/node": "^26.6.6",
+		"@types/node": "^24.19.2",
 		"eslint": "^10.14.0",
 		"eslint-import-resolver-typescript": "^4.4.5",
 		"eslint-plugin-import-x": "^4.18.0",
@@ -22,8 +29,8 @@
 		"lint-staged": "^17.6.0",
 		"prettier": "^3.9.10",
 		"prettier-plugin-packagejson": "^3.1.0",
-		"typescript-eslint": "^8.72.1",
-		"vite": "^8.3.6"
+		"typescript": "~6.0.3",
+		"typescript-eslint": "^8.72.1"
 	},
 	"packageManager": "pnpm@12.18.0",
 	"devEngines": {
