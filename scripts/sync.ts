@@ -2,13 +2,28 @@
 // synced-files.txt records what the last sync copied, so deleted files can be told apart from template-specific ones.
 // With --check, only reports drift (used in CI and pre-commit).
 import { cpSync, existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
-import { join, relative } from "node:path";
+import { basename, join, relative } from "node:path";
 
 const root = join(import.meta.dirname, "..");
 const sharedDir = join(root, "shared");
 const templatesDir = join(root, "templates");
 const manifestPath = join(import.meta.dirname, "synced-files.txt");
 const check = process.argv.includes("--check");
+
+// Templates that keep a shared file at another path, or not at all (null).
+const destinations: Partial<Record<string, Partial<Record<string, string | null>>>> = {
+	monorepo: {
+		"eslint.base.ts": join("packages", "eslint-config", "eslint.base.ts"),
+		"lint-staged.config.ts": join("packages", "lint-staged-config", "lint-staged.base.ts"),
+		"pnpm-workspace.yaml": null,
+		"tsconfig.base.json": join("packages", "typescript-config", "tsconfig.base.json"),
+	},
+};
+
+function targetOf(template: string, file: string): string | undefined {
+	const destination = destinations[basename(template)]?.[file];
+	return destination === null ? undefined : join(template, destination ?? file);
+}
 
 const sharedFiles = readdirSync(sharedDir, { recursive: true, withFileTypes: true })
 	.filter((entry) => entry.isFile())
@@ -29,9 +44,9 @@ const drifted: Array<string> = [];
 for (const template of templates) {
 	for (const file of sharedFiles) {
 		const source = join(sharedDir, file);
-		const target = join(template, file);
+		const target = targetOf(template, file);
 
-		if (existsSync(target) && readFileSync(source).equals(readFileSync(target))) {
+		if (target === undefined || (existsSync(target) && readFileSync(source).equals(readFileSync(target)))) {
 			continue;
 		}
 
@@ -44,9 +59,9 @@ for (const template of templates) {
 	}
 
 	for (const file of removedFiles) {
-		const target = join(template, file);
+		const target = targetOf(template, file);
 
-		if (!existsSync(target)) {
+		if (target === undefined || !existsSync(target)) {
 			continue;
 		}
 

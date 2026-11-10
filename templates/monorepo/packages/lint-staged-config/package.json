@@ -1,0 +1,12 @@
+{
+	"name": "@repo/lint-staged-config",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./lint-staged.base.ts"
+	},
+	"devDependencies": {
+		"lint-staged": "catalog:"
+	}
+}

@@ -1,0 +1,38 @@
+{
+	"name": "@repo/web",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite dev",
+		"lint": "eslint --max-warnings 0 .",
+		"start": "srvx --prod -s ../client dist/server/server.js",
+		"typecheck": "tsc -b"
+	},
+	"dependencies": {
+		"@repo/utils": "workspace:*",
+		"@tanstack/react-router": "^1.170.46",
+		"@tanstack/react-start": "^1.169.4",
+		"react": "^19.3.1",
+		"react-dom": "^19.3.1",
+		"srvx": "^1.0.8"
+	},
+	"devDependencies": {
+		"@repo/eslint-config": "workspace:*",
+		"@repo/lint-staged-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
+		"@tanstack/eslint-plugin-router": "^1.162.0",
+		"@types/node": "catalog:",
+		"@types/react": "^19.3.0",
+		"@types/react-dom": "^19.3.0",
+		"@vitejs/plugin-react": "^6.2.1",
+		"eslint": "catalog:",
+		"eslint-plugin-react-hooks": "^7.1.1",
+		"eslint-plugin-react-refresh": "^0.5.7",
+		"globals": "catalog:",
+		"jiti": "catalog:",
+		"typescript": "catalog:",
+		"vite": "^8.3.6"
+	}
+}

@@ -12,6 +12,7 @@ const DEFAULT_REF = "master";
 const TEMPLATES = {
 	node: "Node app bundled with tsdown",
 	react: "React + Vite web app",
+	monorepo: "pnpm + turbo monorepo with a Node API, a TanStack Start app and a shared library",
 } as const;
 
 type Template = keyof typeof TEMPLATES;

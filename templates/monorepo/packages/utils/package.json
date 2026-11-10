@@ -1,0 +1,22 @@
+{
+	"name": "@repo/utils",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"scripts": {
+		"lint": "eslint --max-warnings 0 .",
+		"typecheck": "tsc -b"
+	},
+	"devDependencies": {
+		"@repo/eslint-config": "workspace:*",
+		"@repo/lint-staged-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
+		"@types/node": "catalog:",
+		"eslint": "catalog:",
+		"jiti": "catalog:",
+		"typescript": "catalog:"
+	}
+}
